@@ -5,12 +5,25 @@ const initialState = {
 };
 
 const accessTokenReducer = (state = initialState, action) => {
-  if (action.type === types.FETCH_ACCESS_TOKEN) {
-    return {
-      ...state,
-      accessToken: action.payload,
-    };
-  } else {
-    return state;
+  switch (action.type) {
+    case types.FETCH_ACCESS_TOKEN:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case types.FETCH_ACCESS_TOKEN_SUCCESS:
+      return {
+        ...state,
+        accessToken: action.payload.access_token,
+      };
+    case types.FETCH_ACCESS_TOKEN_ERROR:
+      return {
+        ...state,
+        accessToken: null,
+        isLoading: false,
+        error: action.payload.error,
+      };
+    default:
+      return state;
   }
 };
