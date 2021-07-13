@@ -29,3 +29,5 @@ const accessTokenReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default accessTokenReducer;

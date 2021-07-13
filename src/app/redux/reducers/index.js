@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import accessTokenReducer from './spotifyTokenReducer';
+import accessTokenReducer from './accessTokenReducer';
 
 const rootReducer = combineReducers({
   accessToken: accessTokenReducer,
 });
 
-export const rootReducer;
+export default rootReducer;
