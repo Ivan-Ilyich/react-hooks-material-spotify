@@ -2,6 +2,8 @@ import * as types from '../consts/types';
 
 const initialState = {
   accessToken: null,
+  isLoading: false,
+  error: null,
 };
 
 const accessTokenReducer = (state = initialState, action) => {
