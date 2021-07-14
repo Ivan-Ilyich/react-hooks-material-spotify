@@ -22,7 +22,6 @@ const Main = () => {
       console.log('I AM CALLING SPOTIFYWEBAPI');
       spotifyApi.setAccessToken(token);
       spotifyApi.getMe().then((user) => console.log(user));
-      spotifyApi.getArtistAlbums().then((albums) => console.log(albums));
     }
   }, [token]);
 
