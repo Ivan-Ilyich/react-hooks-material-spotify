@@ -15,6 +15,11 @@ export const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case 'SET_ACCESS_TOKEN':
+      return {
+        ...state,
+        accessToken: action.payload,
+      };
     default:
       return state;
   }
