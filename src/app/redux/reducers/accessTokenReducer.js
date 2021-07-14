@@ -6,7 +6,11 @@ const initialState = {
   error: null,
 };
 
-const accessTokenReducer = (state = initialState, action) => {
+const accessTokenReducer = (state = initialState, action = { type: null }) => {
+  console.log(
+    '🚀 ~ file: accessTokenReducer.js ~ line 10 ~ accessTokenReducer ~ action',
+    action,
+  );
   switch (action.type) {
     case types.FETCH_ACCESS_TOKEN:
       return {
