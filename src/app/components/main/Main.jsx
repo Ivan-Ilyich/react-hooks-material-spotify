@@ -12,6 +12,12 @@ import { useDataLayer } from '../../context/store';
 const useStyles = makeStyles({
   mainContainer: {
     padding: '30px',
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
   },
 });
 const spotifyApi = new SpotifyWebApi();
@@ -46,7 +52,7 @@ const Main = () => {
   console.log(user);
   return (
     <>
-      <Container maxWidth="md" className={classes.mainContainer}>
+      <Container maxWidth="md" className={classes.mainContainer} height="100%">
         {!accessToken ? <Login /> : <Dashboard />}
       </Container>
     </>
