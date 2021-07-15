@@ -1,5 +1,10 @@
 import React from 'react';
+import Sidebar from './Sidebar/Sidebar';
 
-const Dashboard = () => <div>I am logged in</div>;
+const Dashboard = () => (
+  <div>
+    <Sidebar />
+  </div>
+);
 
 export default Dashboard;
