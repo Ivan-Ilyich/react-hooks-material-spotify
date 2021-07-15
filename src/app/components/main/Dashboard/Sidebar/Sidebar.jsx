@@ -3,8 +3,9 @@ import SidebarOption from './SidebarOption/SidebarOption';
 
 const Sidebar = () => (
   <div>
-    I am the sidebar
-    <SidebarOption />
+    <SidebarOption option="Home" />
+    <SidebarOption option="Search" />
+    <SidebarOption option="Your Library" />
   </div>
 );
 

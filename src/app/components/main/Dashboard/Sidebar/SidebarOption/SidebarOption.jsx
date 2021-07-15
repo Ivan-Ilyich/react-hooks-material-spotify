@@ -1,5 +1,9 @@
 import React from 'react';
 
-const SidebarOption = () => <div>I am the sidebar option</div>;
+const SidebarOption = ({ option }) => (
+  <div>
+    <h3>{option}</h3>
+  </div>
+);
 
 export default SidebarOption;
