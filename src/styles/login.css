@@ -1,0 +1,33 @@
+.login__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.spotify-logo {
+  width: 30vw;
+  min-height: fit-content;
+  max-height: 10rem;
+  margin-bottom: 5rem;
+}
+
+.login__button {
+  width: 12vw;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  min-width: fit-content;
+  padding: 20px;
+  border-radius: 99px;
+  font-weight: 800;
+  background-color: #1db954;
+  transition: 220ms ease-in-out;
+}
+
+.login__button:hover {
+  background: #3ad470;
+  color: black;
+}
