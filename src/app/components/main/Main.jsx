@@ -12,6 +12,10 @@ const spotifyApi = new SpotifyWebApi();
 
 const Main = () => {
   const [{ user, accessToken }, dispatch] = useDataLayer();
+  console.log(
+    '🚀 ~ file: Main.jsx ~ line 15 ~ Main ~ accessToken',
+    accessToken,
+  );
 
   useEffect(() => {
     const hash = getAccessToken();

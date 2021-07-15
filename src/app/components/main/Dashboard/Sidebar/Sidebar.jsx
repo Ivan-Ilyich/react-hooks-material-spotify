@@ -2,7 +2,7 @@ import React from 'react';
 import SidebarOption from './SidebarOption/SidebarOption';
 
 const Sidebar = () => (
-  <div>
+  <div className="sidebar__container">
     <SidebarOption option="Home" />
     <SidebarOption option="Search" />
     <SidebarOption option="Your Library" />

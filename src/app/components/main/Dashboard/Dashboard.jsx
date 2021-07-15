@@ -5,7 +5,7 @@ import Player from './Player/Player';
 
 const Dashboard = () => (
   <div className="dashboard__container">
-    <div>
+    <div className="sidebar__body__container">
       <Sidebar />
       <Body />
     </div>

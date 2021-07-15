@@ -1,0 +1,11 @@
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  flex: 0.2;
+  padding-left: .4rem;
+  padding-right: 0.4rem;
+  min-width: 10rem;
+  height: 100vh;
+  color: white;
+  background-color: #040404;
+}

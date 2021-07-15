@@ -1,4 +1,7 @@
 @import 'login.css';
+@import 'dashboard.css';
+@import 'sidebar.css';
+@import 'body.css';
 
 .app__container {
   height: 100vh;
