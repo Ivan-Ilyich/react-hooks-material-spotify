@@ -37,6 +37,12 @@ const Main = () => {
           payload: userData,
         });
       });
+      spotifyApi.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: 'SET_PLAYLIST',
+          payload: playlists,
+        });
+      });
     }
   }, [accessToken]);
 

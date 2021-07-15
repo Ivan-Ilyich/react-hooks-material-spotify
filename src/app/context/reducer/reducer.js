@@ -21,6 +21,11 @@ export const reducer = (state, action) => {
         ...state,
         accessToken: action.payload,
       };
+    case 'SET_PLAYLIST':
+      return {
+        ...state,
+        playList: action.payload,
+      };
     default:
       return state;
   }
