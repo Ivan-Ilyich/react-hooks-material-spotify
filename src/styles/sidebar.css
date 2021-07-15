@@ -21,3 +21,15 @@
   height: 70px;
   padding: 10px;
 }
+
+.sidebar__container>hr {
+  border: 1px solid #2a2a2a;
+  width: 90%;
+  margin: .2rem auto;
+}
+
+.sidebar__title {
+  margin-left: .5rem;
+  padding: .2rem;
+  font-size: .5rem;
+}

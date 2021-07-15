@@ -1,8 +1,9 @@
 import React from 'react';
 
-const SidebarOption = ({ option }) => (
+const SidebarOption = ({ option, Icon }) => (
   <div className="sidebar__option__container">
-    <p>{option}</p>
+    {Icon && <Icon className="sidebar__option__icon" />}
+    {Icon ? <h4>{option}</h4> : <p>{option}</p>}
   </div>
 );
 

@@ -1,4 +1,7 @@
 import React from 'react';
+import HomeIcon from '@material-ui/icons/Home';
+import SearchIcon from '@material-ui/icons/Search';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import SidebarOption from './SidebarOption/SidebarOption';
 
 const Sidebar = () => (
@@ -8,9 +11,9 @@ const Sidebar = () => (
       alt="side bar logo"
       className="sidebar__logo"
     />
-    <SidebarOption option="Home" />
-    <SidebarOption option="Search" />
-    <SidebarOption option="Your Library" />
+    <SidebarOption option="Home" Icon={HomeIcon} />
+    <SidebarOption option="Search" Icon={SearchIcon} />
+    <SidebarOption option="Your Library" Icon={LibraryMusicIcon} />
     <br />
     <strong className="sidebar__title">PLAYLISTS</strong>
     <hr />

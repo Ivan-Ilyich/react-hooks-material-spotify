@@ -1,4 +1,18 @@
 .sidebar__option__container {
+  display: flex;
+  align-items: center;
+  color: gray;
+  height: 1.8rem;
+  cursor: pointer;
   padding-left: .4rem;
   padding-right: 0.4rem;
+  transition: 200ms color ease-in;
+}
+
+.sidebar__option__container:hover {
+  color: white;
+}
+
+.sidebar__option__icon {
+  padding: 0 .2rem;
 }
