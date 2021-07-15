@@ -2,6 +2,20 @@
 @import 'dashboard.css';
 @import 'sidebar.css';
 @import 'body.css';
+@import 'player.css';
+@import 'sidebarOption.css';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 25px;
+}
 
 .app__container {
   height: 100vh;

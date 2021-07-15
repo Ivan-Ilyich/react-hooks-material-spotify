@@ -7,9 +7,4 @@
 .sidebar__body__container {
   display: flex;
   height: 85%;
-  border: 1px solid black;
-}
-
-.sidebar__component {
-  border: 1px solid red;
 }

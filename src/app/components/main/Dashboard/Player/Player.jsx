@@ -1,5 +1,9 @@
 import React from 'react';
 
-const Player = () => <h1>I am the player</h1>;
+const Player = () => (
+  <div className="player__container">
+    <h2>i am the player</h2>
+  </div>
+);
 
 export default Player;

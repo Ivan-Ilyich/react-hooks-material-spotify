@@ -2,10 +2,22 @@
   display: flex;
   flex-direction: column;
   flex: 0.2;
-  padding-left: .4rem;
-  padding-right: 0.4rem;
-  min-width: 10rem;
-  height: 100vh;
+  padding-left: .2rem;
+  padding-right: .2rem;
+  min-width: 9rem;
   color: white;
   background-color: #040404;
+}
+
+.sidebar__title {
+  margin-left: .4rem;
+  padding: .1rem;
+  font-size: .5rem;
+}
+
+.sidebar__logo {
+  margin-right: auto;
+  object-fit: contain;
+  height: 70px;
+  padding: 10px;
 }
