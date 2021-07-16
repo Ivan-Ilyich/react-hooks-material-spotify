@@ -5,9 +5,9 @@ import PlayerDetails from './PlayerDetails/PlayerDetails';
 
 const Player = () => (
   <div className="player__container">
-    <PlayerDetails />
-    <PlayerControls />
-    <VolumeControls />
+    <PlayerDetails className="player__details__container" />
+    <PlayerControls className="player__controls__container" />
+    <VolumeControls className="player__volume__container" />
   </div>
 );
 
