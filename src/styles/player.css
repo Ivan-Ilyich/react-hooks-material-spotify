@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   color: white;
-  width: 300px;
+  width: 12rem;
   flex: 0.3;
 }
 
@@ -21,7 +21,7 @@
   display: flex;
   flex: .4;
   align-items: center;
-  padding: 0 4rem;
+  padding: 0 1.5rem;
   color: white;
   justify-content: space-between;
   max-width: 20rem;
@@ -29,14 +29,14 @@
 
 .player__volume__container {
   display: flex;
+  flex: 0.3;
+  min-width: 7rem !important;
   justify-content: space-between;
   align-items: center;
   color: white;
-  flex: 0.3 !important;
-  width: 30%;
 }
 
-.player__volume__container * .MuiSlider-root {
+.player__container * .MuiSlider-colorPrimary {
   color: green;
 }
 
