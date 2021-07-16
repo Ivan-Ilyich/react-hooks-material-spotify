@@ -1,8 +1,13 @@
 import React from 'react';
+import PlayerControls from './PlayerControls/PlayerControls';
+import VolumeControls from './VolumeControls/VolumeControls';
+import PlayerDetails from './PlayerDetails/PlayerDetails';
 
 const Player = () => (
   <div className="player__container">
-    <h2>i am the player</h2>
+    <PlayerDetails />
+    <PlayerControls />
+    <VolumeControls />
   </div>
 );
 
