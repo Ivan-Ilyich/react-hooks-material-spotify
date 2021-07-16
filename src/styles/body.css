@@ -49,7 +49,7 @@
 }
 
 .view__songs__shuffle {
-  font-size: 80px !important;
+  font-size: 3.2rem !important;
   margin-left: 1.2rem;
   margin-top: .8rem;
   margin-bottom: .8rem;
@@ -62,4 +62,39 @@
 .view__songs__shuffle:hover {
   transition: 100ms transform ease-in;
   transform: scale(1.08);
+}
+
+
+.song__row__container {
+  margin-left: .8rem;
+  padding: .8rem;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  color: white;
+}
+
+.song__row__container:hover {
+  cursor: pointer;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.song__row__info {
+  margin-left: .8rem;
+}
+
+.song__row__info>h1 {
+  font-size: 16px;
+}
+
+.song__row__info>p {
+  font-size: 14px;
+  margin-top: 3px;
+  color: gray;
+}
+
+.song__row__album {
+  height: 1.6rem;
+  width: 1.6rem;
 }
