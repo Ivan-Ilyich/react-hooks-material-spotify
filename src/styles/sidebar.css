@@ -33,3 +33,9 @@
   padding: .2rem;
   font-size: .5rem;
 }
+
+.sidebar__container>.sidebar__option__container>p {
+  margin-top: .4rem;
+  margin-left: .8rem;
+  font-size: .7rem;
+}

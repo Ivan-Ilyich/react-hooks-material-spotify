@@ -12,10 +12,6 @@ const spotifyApi = new SpotifyWebApi();
 
 const Main = () => {
   const [{ user, accessToken }, dispatch] = useDataLayer();
-  console.log(
-    '🚀 ~ file: Main.jsx ~ line 15 ~ Main ~ accessToken',
-    accessToken,
-  );
 
   useEffect(() => {
     const hash = getAccessToken();
@@ -29,24 +25,36 @@ const Main = () => {
     window.location.hash = '';
 
     if (accessToken) {
-      console.log('I AM CALLING SPOTIFYWEBAPI');
       spotifyApi.setAccessToken(accessToken);
-      spotifyApi.getMe().then((userData) => {
-        dispatch({
-          type: 'SET_USER',
-          payload: userData,
+      spotifyApi
+        .getMe()
+        .then((userData) => {
+          dispatch({
+            type: 'SET_USER',
+            payload: userData,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      });
-      spotifyApi.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: 'SET_PLAYLIST',
-          payload: playlists,
+      spotifyApi
+        .getUserPlaylists()
+        .then((playlists) => {
+          console.log(
+            '🚀 ~ file: Main.jsx ~ line 41 ~ spotifyApi.getUserPlaylists ~ playlists',
+            playlists,
+          );
+          dispatch({
+            type: 'SET_PLAYLIST',
+            payload: playlists,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      });
     }
   }, [accessToken]);
 
-  console.log(user);
   return <div>{!accessToken ? <Login /> : <Dashboard />}</div>;
 };
 
