@@ -6,12 +6,12 @@ import ShuffleIcon from '@material-ui/icons/Shuffle';
 import RepeatIcon from '@material-ui/icons/Repeat';
 
 const PlayerControls = () => (
-  <div>
-    <ShuffleIcon />
-    <SkipPreviousIcon />
-    <PlayCircleOutlineIcon />
-    <SkipNextIcon />
-    <RepeatIcon />
+  <div className="player__controls__container">
+    <ShuffleIcon className="player__controls__green" />
+    <SkipPreviousIcon className="player__controls__icon" />
+    <PlayCircleOutlineIcon className="player__controls__icon" />
+    <SkipNextIcon className="player__controls__icon" />
+    <RepeatIcon className="player__controls__green" />
   </div>
 );
 export default PlayerControls;

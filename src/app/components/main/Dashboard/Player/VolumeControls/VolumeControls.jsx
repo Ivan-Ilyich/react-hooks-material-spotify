@@ -5,7 +5,7 @@ import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 
 const VolumeControls = () => {
   return (
-    <Grid container spacing={2}>
+    <Grid item xs={2} container spacing={2} alignItems="center">
       <Grid item>
         <PlaylistPlayIcon />
       </Grid>

@@ -18,11 +18,26 @@
 }
 
 .player__controls__container {
+  display: flex;
   flex: .4;
+  align-items: center;
+  padding: 0 4rem;
+  color: white;
+  justify-content: space-between;
+  max-width: 20rem;
 }
 
 .player__volume__container {
-  flex: .3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  flex: 0.3 !important;
+  width: 30%;
+}
+
+.player__volume__container * .MuiSlider-root {
+  color: green;
 }
 
 .player__details__container .player__details__albumLogo {
@@ -38,4 +53,14 @@
 
 .player__details__container .player__details__songInfo>p {
   font-size: .6rem;
+}
+
+.player__container .player__controls__green {
+  color: #1ed15e;
+}
+
+.player__controls__icon:hover,
+.player__controls__green:hover {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1.2) !important;
 }
