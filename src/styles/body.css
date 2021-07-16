@@ -37,3 +37,29 @@
 .view__info__infoText>p {
   font-size: .6rem;
 }
+
+.view__songs__container {
+  z-index: 1;
+  margin: .8rem -.2rem;
+}
+
+.view__songs__icon {
+  display: flex;
+  align-items: center;
+}
+
+.view__songs__shuffle {
+  font-size: 80px !important;
+  margin-left: 1.2rem;
+  margin-top: .8rem;
+  margin-bottom: .8rem;
+}
+
+.view__songs__container * .MuiSvgIcon-root {
+  margin-right: .8rem;
+}
+
+.view__songs__shuffle:hover {
+  transition: 100ms transform ease-in;
+  transform: scale(1.08);
+}
