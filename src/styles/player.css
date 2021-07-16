@@ -10,7 +10,11 @@
 }
 
 .player__details__container {
-  flex: .3;
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 300px;
+  flex: 0.3;
 }
 
 .player__controls__container {
@@ -19,4 +23,19 @@
 
 .player__volume__container {
   flex: .3;
+}
+
+.player__details__container .player__details__albumLogo {
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-right: .8rem;
+  object-fit: contain;
+}
+
+.player__details__container .player__details__songInfo>h4 {
+  margin-bottom: .2rem;
+}
+
+.player__details__container .player__details__songInfo>p {
+  font-size: .6rem;
 }
