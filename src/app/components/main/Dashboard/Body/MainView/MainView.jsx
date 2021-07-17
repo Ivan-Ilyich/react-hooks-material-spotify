@@ -16,16 +16,17 @@ const MainView = () => {
       payload: playlists?.items?.[0] || null,
     });
 
-    spotifyApi.getPlaylistTracks(selectedPlaylist?.id).then((tracks) => {
-      dispatch({
-        types: types.SET_SELECTED_PLAYLISTS_TRACKS,
-        payload: tracks?.items,
+    spotifyApi
+      .getPlaylistTracks(selectedPlaylist?.id)
+      .then((tracks) => {
+        dispatch({
+          type: types.SET_SELECTED_PLAYLISTS_TRACKS,
+          payload: tracks?.items,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      console.log(
-        '🚀 ~ file: MainView.jsx ~ line 24 ~ spotifyApi.getPlaylistTracks ~ tracks',
-        tracks,
-      );
-    });
   }, [playlists, selectedPlaylist]);
 
   return (
