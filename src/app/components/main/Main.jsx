@@ -45,7 +45,7 @@ const Main = () => {
             playlists,
           );
           dispatch({
-            type: 'SET_PLAYLIST',
+            type: 'SET_PLAYLISTS',
             payload: playlists,
           });
         })

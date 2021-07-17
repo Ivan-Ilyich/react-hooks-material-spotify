@@ -6,10 +6,10 @@ import SidebarOption from './SidebarOption/SidebarOption';
 import { useDataLayer } from '../../../../context/store';
 
 const Sidebar = () => {
-  const [{ playlist }] = useDataLayer();
+  const [{ playlists }] = useDataLayer();
   console.log(
     '🚀 ~ file: Sidebar.jsx ~ line 10 ~ Sidebar ~ playlist',
-    playlist,
+    playlists,
   );
 
   return (
@@ -25,7 +25,7 @@ const Sidebar = () => {
       <br />
       <strong className="sidebar__title">Playlists</strong>
       <hr />
-      {playlist?.items?.map((item) => {
+      {playlists?.items?.map((item) => {
         return <SidebarOption option={item.name} key={item.name} />;
       })}
     </div>
