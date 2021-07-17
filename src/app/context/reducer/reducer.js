@@ -10,6 +10,7 @@ export const initialState = {
   playing: false,
   item: null,
   selectedPlaylist: null,
+  selectedPlaylistsTracks: null,
 };
 
 export const reducer = (state, action) => {
@@ -60,6 +61,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         selectedPlaylist: action.payload,
+      };
+    case types.SET_SELECTED_PLAYLISTS_TRACKS:
+      return {
+        ...state,
+        selectedPlaylistsTracks: action.payload,
       };
     default:
       return state;

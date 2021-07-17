@@ -1,22 +1,32 @@
 import React, { useEffect } from 'react';
+import SpotifyWebApi from 'spotify-web-api-js';
 import { useDataLayer } from '../../../../../context/store';
 import ViewInfo from './ViewInfo/ViewInfo';
 import ViewSongs from './ViewSongs/ViewSongs';
 import * as types from '../../../../../context/consts/types';
 
+const spotifyApi = new SpotifyWebApi();
+
 const MainView = () => {
   const [{ selectedPlaylist, playlists }, dispatch] = useDataLayer();
-  console.log(
-    '🚀 ~ file: MainView.jsx ~ line 9 ~ MainView ~ selectedPlaylist',
-    selectedPlaylist,
-  );
 
   useEffect(() => {
     dispatch({
       type: types.SET_SELECTED_PLAYLIST,
       payload: playlists?.items?.[0] || null,
     });
-  }, [playlists]);
+
+    spotifyApi.getPlaylistTracks(selectedPlaylist?.id).then((tracks) => {
+      dispatch({
+        types: types.SET_SELECTED_PLAYLISTS_TRACKS,
+        payload: tracks?.items,
+      });
+      console.log(
+        '🚀 ~ file: MainView.jsx ~ line 24 ~ spotifyApi.getPlaylistTracks ~ tracks',
+        tracks,
+      );
+    });
+  }, [playlists, selectedPlaylist]);
 
   return (
     <div className="main__view__container">
