@@ -1,7 +1,7 @@
 .sidebar__container {
   display: flex;
   flex-direction: column;
-  flex: 0.2;
+  flex: 0.1;
   padding-left: .2rem;
   padding-right: .2rem;
   min-width: 9rem;
@@ -12,7 +12,7 @@
 .sidebar__title {
   margin-left: .4rem;
   padding: .1rem;
-  font-size: .5rem;
+  font-size: .1rem;
 }
 
 .sidebar__logo {
@@ -35,7 +35,7 @@
 }
 
 .sidebar__container>.sidebar__option__container>p {
-  margin-top: .4rem;
+  margin-top: .44rem;
   margin-left: .8rem;
   font-size: .7rem;
 }

@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   color: gray;
-  height: 1.8rem;
+  height: 1.4rem;
   cursor: pointer;
-  padding-left: .4rem;
-  padding-right: 0.4rem;
+  padding-left: .2rem;
+  padding-right: .2rem;
   transition: 200ms color ease-in;
 }
 
