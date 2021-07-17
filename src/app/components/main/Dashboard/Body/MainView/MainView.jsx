@@ -20,7 +20,11 @@ const MainView = () => {
 
   return (
     <div className="main__view__container">
-      <ViewInfo />
+      <ViewInfo
+        descreption={selectedPlaylist?.descreption}
+        imageUrl={selectedPlaylist?.images?.[0].url}
+        name={selectedPlaylist?.name}
+      />
       <ViewSongs />
     </div>
   );
