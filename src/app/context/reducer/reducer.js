@@ -1,3 +1,5 @@
+import * as types from '../consts/types';
+
 export const initialState = {
   user: null,
   accessToken: null,
@@ -13,42 +15,42 @@ export const reducer = (state, action) => {
   console.log(action);
 
   switch (action.type) {
-    case 'SET_USER':
+    case types.SET_USER:
       return {
         ...state,
         user: action.payload,
       };
-    case 'SET_ACCESS_TOKEN':
+    case types.SET_ACCESS_TOKEN:
       return {
         ...state,
         accessToken: action.payload,
       };
-    case 'SET_ID':
+    case types.SET_ID:
       return {
         ...state,
         id: action.payload,
       };
-    case 'SET_PLAYLISTS':
+    case types.SET_PLAYLISTS:
       return {
         ...state,
         playlists: action.payload,
       };
-    case 'SET_DISCOVER_WEEKLY':
+    case types.SET_DISCOVER_WEEKLY:
       return {
         ...state,
         discoverWeekly: action.payload,
       };
-    case 'SET_TOP_ARTISTS':
+    case types.SET_TOP_ARTISTS:
       return {
         ...state,
         topArtists: action.payload,
       };
-    case 'SET_PLAYING':
+    case types.SET_PLAYING:
       return {
         ...state,
         playing: action.payload,
       };
-    case 'SET_ITEM':
+    case types.SET_ITEM:
       return {
         ...state,
         item: action.payload,
