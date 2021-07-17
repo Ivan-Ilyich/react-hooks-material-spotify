@@ -12,7 +12,8 @@ import * as types from '../../context/consts/types';
 const spotifyApi = new SpotifyWebApi();
 
 const Main = () => {
-  const [{ user, id, accessToken }, dispatch] = useDataLayer();
+  const [{ user, id, accessToken, playlists }, dispatch] = useDataLayer();
+  console.log('🚀 ~ file: Main.jsx ~ line 16 ~ Main ~ playlists', playlists);
 
   useEffect(async () => {
     const hash = getAccessToken();
@@ -52,10 +53,10 @@ const Main = () => {
 
       spotifyApi
         .getUserPlaylists()
-        .then((playlists) => {
+        .then((userPlaylists) => {
           dispatch({
             type: types.SET_PLAYLISTS,
-            payload: playlists,
+            payload: userPlaylists,
           });
         })
         .catch((err) => {
