@@ -8,20 +8,15 @@ import * as types from '../../../../context/consts/types';
 
 const Sidebar = () => {
   const [{ playlists }, dispatch] = useDataLayer();
-  console.log(
-    '🚀 ~ file: Sidebar.jsx ~ line 10 ~ Sidebar ~ playlists',
-    playlists,
-  );
 
   const handleClick = (e) => {
-    const albumName = e.target.innerHTML;
+    const albumName =
+      (!e.target.firstElementChild && e.target.innerHTML) ||
+      e.target.firstElementChild.innerHTML;
     const newSelectedPlaylist = playlists.items.filter((playlist) =>
       playlist.name.includes(albumName),
     );
-    console.log(
-      '🚀 ~ file: Sidebar.jsx ~ line 22 ~ handleClick ~ newSelectedPlaylist',
-      newSelectedPlaylist,
-    );
+
     dispatch({
       type: types.SET_SELECTED_PLAYLIST,
       payload: newSelectedPlaylist[0],
