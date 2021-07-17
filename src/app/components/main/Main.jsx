@@ -7,45 +7,54 @@ import Login from './Login/Login';
 import Dashboard from './Dashboard/Dashboard';
 import { getAccessToken } from '../../utils/spotifyAuth';
 import { useDataLayer } from '../../context/store';
+import * as types from '../../context/consts/types';
 
 const spotifyApi = new SpotifyWebApi();
 
 const Main = () => {
-  const [{ user, accessToken }, dispatch] = useDataLayer();
+  const [{ user, id, accessToken }, dispatch] = useDataLayer();
 
-  useEffect(() => {
+  useEffect(async () => {
     const hash = getAccessToken();
     const { access_token } = hash;
+    window.location.hash = '';
+
+    dispatch({
+      type: types.SET_ID,
+      payload: user?.id || null,
+    });
+
+    // const topArtists = user?.id && (await spotifyApi.getMyTopArtists(id));
+    // console.log(
+    //   '🚀 ~ file: Main.jsx ~ line 34 ~ useEffect ~ topArtists',
+    //   topArtists,
+    // );
+
     if (access_token) {
+      spotifyApi.setAccessToken(access_token);
+
       dispatch({
         type: 'SET_ACCESS_TOKEN',
         payload: access_token,
       });
-    }
-    window.location.hash = '';
 
-    if (accessToken) {
-      spotifyApi.setAccessToken(accessToken);
       spotifyApi
         .getMe()
         .then((userData) => {
           dispatch({
-            type: 'SET_USER',
+            type: types.SET_USER,
             payload: userData,
           });
         })
         .catch((err) => {
           console.log(err);
         });
+
       spotifyApi
         .getUserPlaylists()
         .then((playlists) => {
-          console.log(
-            '🚀 ~ file: Main.jsx ~ line 41 ~ spotifyApi.getUserPlaylists ~ playlists',
-            playlists,
-          );
           dispatch({
-            type: 'SET_PLAYLISTS',
+            type: types.SET_PLAYLISTS,
             payload: playlists,
           });
         })
@@ -53,7 +62,7 @@ const Main = () => {
           console.log(err);
         });
     }
-  }, [accessToken]);
+  }, [accessToken, user, id]);
 
   return <div>{!accessToken ? <Login /> : <Dashboard />}</div>;
 };

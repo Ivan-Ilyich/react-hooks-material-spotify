@@ -7,10 +7,6 @@ import { useDataLayer } from '../../../../context/store';
 
 const Sidebar = () => {
   const [{ playlists }] = useDataLayer();
-  console.log(
-    '🚀 ~ file: Sidebar.jsx ~ line 10 ~ Sidebar ~ playlist',
-    playlists,
-  );
 
   return (
     <div className="sidebar__container">

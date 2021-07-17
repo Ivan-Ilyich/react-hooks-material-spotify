@@ -1,10 +1,10 @@
 import React from 'react';
 import { Avatar } from '@material-ui/core';
 
-const AvatarComp = () => (
+const AvatarComp = ({ imageUrl, userName }) => (
   <div className="header__avatar__container">
-    <Avatar alt="wait" src="" />
-    <h4>something</h4>
+    <Avatar alt="wait" src={imageUrl} />
+    <h4>{userName}</h4>
   </div>
 );
 
