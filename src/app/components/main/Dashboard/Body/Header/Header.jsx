@@ -5,7 +5,6 @@ import { useDataLayer } from '../../../../../context/store';
 
 const Header = () => {
   const [{ user }] = useDataLayer();
-  console.log('🚀 ~ file: Header.jsx ~ line 8 ~ Header ~ user?.image', user);
   return (
     <div className="header__container">
       <SearchBar />

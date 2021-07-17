@@ -9,6 +9,7 @@ export const initialState = {
   topArtists: null,
   playing: false,
   item: null,
+  setSelectedPlaylist: null,
 };
 
 export const reducer = (state, action) => {
@@ -54,6 +55,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         item: action.payload,
+      };
+    case types.SET_SELECTED_PLAYLIST:
+      return {
+        ...state,
+        setSelectedPlaylist: action.payload,
       };
     default:
       return state;
