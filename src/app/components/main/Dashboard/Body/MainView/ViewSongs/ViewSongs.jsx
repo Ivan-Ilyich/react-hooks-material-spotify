@@ -1,4 +1,5 @@
 import React from 'react';
+import { uuid } from 'uuidv4';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -19,6 +20,7 @@ const ViewSongs = () => {
         selectedPlaylistsTracks.map((tr) => {
           return (
             <SongRow
+              key={uuid()}
               name={tr?.track?.name}
               album={tr?.track?.album?.name}
               artist={tr?.track?.artists?.[0].name}

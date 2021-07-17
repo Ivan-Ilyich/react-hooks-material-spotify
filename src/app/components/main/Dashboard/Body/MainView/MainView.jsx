@@ -11,10 +11,12 @@ const MainView = () => {
   const [{ selectedPlaylist, playlists }, dispatch] = useDataLayer();
 
   useEffect(() => {
-    dispatch({
-      type: types.SET_SELECTED_PLAYLIST,
-      payload: playlists?.items?.[0] || null,
-    });
+    if (!selectedPlaylist) {
+      dispatch({
+        type: types.SET_SELECTED_PLAYLIST,
+        payload: playlists?.items?.[0] || null,
+      });
+    }
 
     spotifyApi
       .getPlaylistTracks(selectedPlaylist?.id)
