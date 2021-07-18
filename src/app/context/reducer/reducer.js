@@ -11,6 +11,7 @@ export const initialState = {
   item: null,
   selectedPlaylist: null,
   selectedPlaylistsTracks: null,
+  selectedTrack: null,
 };
 
 export const reducer = (state, action) => {
@@ -66,6 +67,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         selectedPlaylistsTracks: action.payload,
+      };
+    case types.SET_SELECTED_TRACK:
+      return {
+        ...state,
+        selectedTrack: action.payload,
       };
     default:
       return state;
