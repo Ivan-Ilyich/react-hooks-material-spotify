@@ -8,14 +8,6 @@ import { useDataLayer } from '../../../../../../context/store';
 
 const ViewSongs = () => {
   const [{ selectedPlaylistsTracks }] = useDataLayer();
-  console.log(
-    '🚀 ~ file: ViewSongs.jsx ~ line 11 ~ ViewSongs ~ selectedPlaylistsTracks',
-    selectedPlaylistsTracks,
-  );
-
-  const handleClick = (e) => {
-    console.log(e);
-  };
 
   return (
     <div className="view__songs__container">
@@ -30,7 +22,6 @@ const ViewSongs = () => {
             <SongRow
               key={uuid()}
               id={tr?.track?.id}
-              handleClick={handleClick}
               name={tr?.track?.name}
               album={tr?.track?.album?.name}
               artist={tr?.track?.artists?.[0].name}

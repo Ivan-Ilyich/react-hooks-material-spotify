@@ -25,12 +25,17 @@ const Player = () => {
         console.log(err);
       });
 
-    spotifyApi.getMyCurrentPlayingTrack().then((trackPlaying) => {
-      dispatch({
-        type: types.SET_CURRENT_PLAYING_TRACK,
-        payload: trackPlaying,
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((trackPlaying) => {
+        dispatch({
+          type: types.SET_CURRENT_PLAYING_TRACK,
+          payload: trackPlaying,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    });
   }, []);
 
   const handlePlayClick = () => {
@@ -43,18 +48,36 @@ const Player = () => {
         is_playing: !currentPlaybackState.is_playing,
       },
     });
-    console.log(
-      '🚀 ~ file: Player.jsx ~ line 49 ~ handlePlayClick ~ currentPlaybackState?.is_playing',
-      currentPlaybackState?.is_playing,
-    );
   };
 
   const handleSkipToNext = () => {
     spotifyApi.skipToNext();
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((trackPlaying) => {
+        dispatch({
+          type: types.SET_CURRENT_PLAYING_TRACK,
+          payload: trackPlaying,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSkipToPrev = () => {
     spotifyApi.skipToPrevious();
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((trackPlaying) => {
+        dispatch({
+          type: types.SET_CURRENT_PLAYING_TRACK,
+          payload: trackPlaying,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
