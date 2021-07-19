@@ -53,9 +53,9 @@ const Player = () => {
     spotifyApi.skipToNext();
   };
 
-  // const handleSkipToPrev = () => {
-  //   spotifyApi.skipToPrevious();
-  // };
+  const handleSkipToPrev = () => {
+    spotifyApi.skipToPrevious();
+  };
 
   return (
     <div className="player__container">
@@ -63,6 +63,7 @@ const Player = () => {
       <PlayerControls
         handlePlayClick={handlePlayClick}
         handleSkipToNext={handleSkipToNext}
+        handleSkipToPrev={handleSkipToPrev}
       />
       <VolumeControls />
     </div>
