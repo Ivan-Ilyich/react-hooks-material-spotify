@@ -34,10 +34,6 @@ const Player = () => {
   }, []);
 
   const handlePlayClick = () => {
-    console.log(
-      '🚀 ~ file: Player.jsx ~ line 49 ~ handlePlayClick ~ currentPlaybackState?.is_playing',
-      currentPlaybackState?.is_playing,
-    );
     (currentPlaybackState?.is_playing && spotifyApi.pause()) ||
       spotifyApi.play();
     dispatch({
@@ -52,10 +48,22 @@ const Player = () => {
       currentPlaybackState?.is_playing,
     );
   };
+
+  const handleSkipToNext = () => {
+    spotifyApi.skipToNext();
+  };
+
+  // const handleSkipToPrev = () => {
+  //   spotifyApi.skipToPrevious();
+  // };
+
   return (
     <div className="player__container">
       <PlayerDetails />
-      <PlayerControls handlePlayClick={handlePlayClick} />
+      <PlayerControls
+        handlePlayClick={handlePlayClick}
+        handleSkipToNext={handleSkipToNext}
+      />
       <VolumeControls />
     </div>
   );

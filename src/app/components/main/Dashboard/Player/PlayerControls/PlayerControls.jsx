@@ -5,7 +5,7 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import RepeatIcon from '@material-ui/icons/Repeat';
 
-const PlayerControls = ({ handlePlayClick }) => {
+const PlayerControls = ({ handlePlayClick, handleSkipToNext }) => {
   return (
     <div className="player__controls__container">
       <ShuffleIcon className="player__controls__green" />
@@ -14,7 +14,10 @@ const PlayerControls = ({ handlePlayClick }) => {
         className="player__controls__icon"
         onClick={handlePlayClick}
       />
-      <SkipNextIcon className="player__controls__icon" />
+      <SkipNextIcon
+        className="player__controls__icon"
+        onClick={handleSkipToNext}
+      />
       <RepeatIcon className="player__controls__green" />
     </div>
   );
