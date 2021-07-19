@@ -63,6 +63,13 @@ const Player = () => {
       .catch((err) => {
         console.log(err);
       });
+    dispatch({
+      type: types.SET_CURRENT_PLAYBACK_STATE,
+      payload: {
+        ...currentPlaybackState,
+        is_playing: true,
+      },
+    });
   };
 
   const handleSkipToPrev = () => {
@@ -78,6 +85,13 @@ const Player = () => {
       .catch((err) => {
         console.log(err);
       });
+    dispatch({
+      type: types.SET_CURRENT_PLAYBACK_STATE,
+      payload: {
+        ...currentPlaybackState,
+        is_playing: true,
+      },
+    });
   };
 
   return (
