@@ -13,6 +13,7 @@ export const initialState = {
   selectedPlaylistsTracks: null,
   selectedTrack: null,
   currentPlaybackState: null,
+  currentPlayingTrack: null,
 };
 
 export const reducer = (state, action) => {
@@ -77,7 +78,12 @@ export const reducer = (state, action) => {
     case types.SET_CURRENT_PLAYBACK_STATE:
       return {
         ...state,
-        payload: action.payload,
+        currentPlaybackState: action.payload,
+      };
+    case types.SET_CURRENT_PLAYING_TRACK:
+      return {
+        ...state,
+        currentPlayingTrack: action.payload,
       };
     default:
       return state;
