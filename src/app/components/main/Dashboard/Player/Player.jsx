@@ -20,23 +20,36 @@ const Player = () => {
           type: types.SET_CURRENT_PLAYBACK_STATE,
           payload: state,
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    spotifyApi
-      .getMyCurrentPlayingTrack()
-      .then((trackPlaying) => {
         dispatch({
           type: types.SET_CURRENT_PLAYING_TRACK,
-          payload: trackPlaying,
+          payload: state.item,
         });
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const handleSkipFunc = () => {
+    spotifyApi
+      .getMyCurrentPlaybackState()
+      .then((state) => {
+        dispatch({
+          type: types.SET_CURRENT_PLAYBACK_STATE,
+          payload: {
+            ...currentPlaybackState,
+            is_playing: true,
+          },
+        });
+        dispatch({
+          type: types.SET_CURRENT_PLAYING_TRACK,
+          payload: state.item,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handlePlayClick = () => {
     (currentPlaybackState?.is_playing && spotifyApi.pause()) ||
@@ -52,46 +65,12 @@ const Player = () => {
 
   const handleSkipToNext = () => {
     spotifyApi.skipToNext();
-    spotifyApi
-      .getMyCurrentPlayingTrack()
-      .then((trackPlaying) => {
-        dispatch({
-          type: types.SET_CURRENT_PLAYING_TRACK,
-          payload: trackPlaying,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    dispatch({
-      type: types.SET_CURRENT_PLAYBACK_STATE,
-      payload: {
-        ...currentPlaybackState,
-        is_playing: true,
-      },
-    });
+    handleSkipFunc();
   };
 
   const handleSkipToPrev = () => {
     spotifyApi.skipToPrevious();
-    spotifyApi
-      .getMyCurrentPlayingTrack()
-      .then((trackPlaying) => {
-        dispatch({
-          type: types.SET_CURRENT_PLAYING_TRACK,
-          payload: trackPlaying,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    dispatch({
-      type: types.SET_CURRENT_PLAYBACK_STATE,
-      payload: {
-        ...currentPlaybackState,
-        is_playing: true,
-      },
-    });
+    handleSkipFunc();
   };
 
   return (
