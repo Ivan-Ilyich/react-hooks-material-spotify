@@ -21,11 +21,11 @@ const ViewSongs = () => {
           return (
             <SongRow
               key={uuid()}
-              id={tr?.track?.id}
-              name={tr?.track?.name}
-              album={tr?.track?.album?.name}
-              artist={tr?.track?.artists?.[0].name}
-              imageUrl={tr?.track?.album?.images?.[1].url}
+              id={tr?.id}
+              name={tr?.name}
+              album={tr?.album?.name}
+              artist={tr?.artists?.[0].name}
+              imageUrl={tr?.album?.images?.[1].url}
             />
           );
         })}

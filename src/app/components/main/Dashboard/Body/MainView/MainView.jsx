@@ -23,7 +23,7 @@ const MainView = () => {
       .then((tracks) => {
         dispatch({
           type: types.SET_SELECTED_PLAYLISTS_TRACKS,
-          payload: tracks?.items,
+          payload: tracks?.items?.map((item) => item.track),
         });
       })
       .catch((err) => {
