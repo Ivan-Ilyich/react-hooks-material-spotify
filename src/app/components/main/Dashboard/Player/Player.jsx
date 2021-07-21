@@ -83,7 +83,6 @@ const Player = () => {
     handleSkipFunc();
   };
 
-  spotifyApi.volu;
   return (
     <div className="player__container">
       <PlayerDetails
@@ -97,7 +96,7 @@ const Player = () => {
         handleSkipToNext={handleSkipToNext}
         handleSkipToPrev={handleSkipToPrev}
       />
-      <VolumeControls />
+      <VolumeControls volumeSetting={spotifyApi.setVolume} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Grid, Slider } from '@material-ui/core';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 
-const VolumeControls = () => {
+const VolumeControls = ({ volumeSetting }) => {
   return (
     <Grid item xs={2} container spacing={2} alignItems="center">
       <Grid item>
@@ -17,7 +17,8 @@ const VolumeControls = () => {
           aria-labelledby="continuous-slider"
           man="0"
           max="100"
-          defaultValue="50"
+          defaultValue="30"
+          onChange={(e, v) => volumeSetting(v)}
         />
       </Grid>
     </Grid>
