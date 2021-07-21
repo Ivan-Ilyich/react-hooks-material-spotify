@@ -9,10 +9,14 @@ const PlayerControls = ({
   handlePlayClick,
   handleSkipToNext,
   handleSkipToPrev,
+  handleShuffle,
 }) => {
   return (
     <div className="player__controls__container">
-      <ShuffleIcon className="player__controls__green" />
+      <ShuffleIcon
+        className="player__controls__green"
+        onClick={handleShuffle}
+      />
       <SkipPreviousIcon
         className="player__controls__icon"
         onClick={handleSkipToPrev}

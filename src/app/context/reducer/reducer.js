@@ -86,6 +86,11 @@ export const reducer = (state, action) => {
         ...state,
         currentPlayingTrack: action.payload,
       };
+    case types.SET_SHUFFLE:
+      return {
+        ...state,
+        shuffle: action.payload,
+      };
     default:
       return state;
   }
