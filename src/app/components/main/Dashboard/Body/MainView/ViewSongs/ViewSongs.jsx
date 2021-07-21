@@ -18,19 +18,17 @@ const ViewSongs = () => {
     const selectedTrack = selectedPlaylistsTracks.find(
       (track) => track.id === e.target.id,
     );
+
     dispatch({
       type: types.SET_SELECTED_TRACK,
       payload: selectedTrack,
     });
+
     spotifyApi
       .play({
         uris: [`spotify:track:${selectedTrack.id}`],
       })
-      .then((response) => {
-        console.log(
-          '🚀 ~ file: ViewSongs.jsx ~ line 41 ~ handleClick ~ response',
-          response,
-        );
+      .then(() => {
         spotifyApi.getMyCurrentPlaybackState().then((state) => {
           dispatch({
             type: types.SET_CURRENT_PLAYBACK_STATE,

@@ -14,6 +14,7 @@ export const initialState = {
   selectedTrack: null,
   currentPlaybackState: null,
   currentPlayingTrack: null,
+  shuffle: false,
 };
 
 export const reducer = (state, action) => {
