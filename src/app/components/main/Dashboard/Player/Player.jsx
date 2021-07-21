@@ -12,10 +12,6 @@ const spotifyApi = new SpotifyWebApi();
 const Player = () => {
   const [{ currentPlaybackState, currentPlayingTrack }, dispatch] =
     useDataLayer();
-  console.log(
-    '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlayingTrack',
-    currentPlayingTrack,
-  );
 
   useEffect(() => {
     spotifyApi
@@ -25,15 +21,25 @@ const Player = () => {
           type: types.SET_CURRENT_PLAYBACK_STATE,
           payload: state,
         });
-        dispatch({
-          type: types.SET_CURRENT_PLAYING_TRACK,
-          payload: state.item,
-        });
       })
       .catch((err) => {
         throw Error(err);
       });
   }, []);
+
+  useEffect(() => {
+    spotifyApi
+      .getMyCurrentPlayingTrack()
+      .then((track) => {
+        dispatch({
+          type: types.SET_CURRENT_PLAYING_TRACK,
+          payload: track.item,
+        });
+      })
+      .catch((err) => {
+        throw Error(err);
+      });
+  }, [currentPlaybackState]);
 
   const handleSkipFunc = () => {
     spotifyApi
