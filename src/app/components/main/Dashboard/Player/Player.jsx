@@ -10,7 +10,12 @@ import * as types from '../../../../context/consts/types';
 const spotifyApi = new SpotifyWebApi();
 
 const Player = () => {
-  const [{ currentPlaybackState }, dispatch] = useDataLayer();
+  const [{ currentPlaybackState, currentPlayingTrack }, dispatch] =
+    useDataLayer();
+  console.log(
+    '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlayingTrack',
+    currentPlayingTrack,
+  );
 
   useEffect(() => {
     spotifyApi
@@ -26,7 +31,7 @@ const Player = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw Error(err);
       });
   }, []);
 
@@ -47,7 +52,7 @@ const Player = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw Error(err);
       });
   };
 
@@ -75,7 +80,12 @@ const Player = () => {
 
   return (
     <div className="player__container">
-      <PlayerDetails />
+      <PlayerDetails
+        trackTitle={currentPlayingTrack?.name}
+        albumTitle={currentPlayingTrack?.album?.name}
+        artistTitle={currentPlayingTrack?.album?.artists[0]?.name}
+        imageUrl={currentPlayingTrack?.album?.images[0]?.url}
+      />
       <PlayerControls
         handlePlayClick={handlePlayClick}
         handleSkipToNext={handleSkipToNext}

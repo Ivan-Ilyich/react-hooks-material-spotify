@@ -9,18 +9,10 @@ const spotifyApi = new SpotifyWebApi();
 
 const SearchBar = () => {
   const [{ selectedPlaylistsTracks }, dispatch] = useDataLayer();
-  console.log(
-    '🚀 ~ file: SearchBar.jsx ~ line 11 ~ SearchBar ~ selectedTracks',
-    selectedPlaylistsTracks,
-  );
   const [search, setSearch] = useState();
 
   useEffect(() => {
     spotifyApi.searchTracks(search).then((tracks) => {
-      console.log(
-        '🚀 ~ file: SearchBar.jsx ~ line 20 ~ spotifyApi.searchTracks ~ tracks',
-        tracks,
-      );
       dispatch({
         type: types.SET_SELECTED_PLAYLISTS_TRACKS,
         payload: tracks.tracks.items,
