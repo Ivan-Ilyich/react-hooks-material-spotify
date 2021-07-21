@@ -13,7 +13,12 @@ const VolumeControls = () => {
         <VolumeDownIcon />
       </Grid>
       <Grid item xs>
-        <Slider aria-labelledby="continuous-slider" />
+        <Slider
+          aria-labelledby="continuous-slider"
+          man="0"
+          max="100"
+          defaultValue="50"
+        />
       </Grid>
     </Grid>
   );
