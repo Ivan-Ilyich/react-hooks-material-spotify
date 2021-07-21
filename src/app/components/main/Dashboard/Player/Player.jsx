@@ -16,9 +16,6 @@ const Player = () => {
     '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlayingTrack',
     currentPlayingTrack,
   );
-
-  const detailOptions = {};
-
   useEffect(() => {
     spotifyApi
       .getMyCurrentPlaybackState()
@@ -35,14 +32,6 @@ const Player = () => {
       .catch((err) => {
         throw Error(err);
       });
-    detailOptions.trackTitle = currentPlayingTrack?.name;
-    detailOptions.albumTitle = currentPlayingTrack?.album?.name;
-    detailOptions.artistTitle = currentPlayingTrack?.album?.artists[0].name;
-    detailOptions.imageUrl = currentPlayingTrack?.album?.images[0].url;
-    console.log(
-      '🚀 ~ file: Player.jsx ~ line 46 ~ useEffect ~ detailOptions',
-      detailOptions,
-    );
   }, []);
 
   const handleSkipFunc = () => {
@@ -90,7 +79,12 @@ const Player = () => {
 
   return (
     <div className="player__container">
-      <PlayerDetails />
+      <PlayerDetails
+        trackTitle={currentPlayingTrack?.name}
+        albumTitle={currentPlayingTrack?.album?.name}
+        artistTitle={currentPlayingTrack?.album?.artists[0]?.name}
+        imageUrl={currentPlayingTrack?.album?.images[0]?.url}
+      />
       <PlayerControls
         handlePlayClick={handlePlayClick}
         handleSkipToNext={handleSkipToNext}
