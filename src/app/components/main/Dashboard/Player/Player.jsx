@@ -42,7 +42,7 @@ const Player = () => {
       .catch((err) => {
         throw Error(err);
       });
-  }, []);
+  }, [currentPlaybackState]);
 
   const handleSkipFunc = () => {
     spotifyApi
