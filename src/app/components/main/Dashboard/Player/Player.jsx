@@ -10,7 +10,14 @@ import * as types from '../../../../context/consts/types';
 const spotifyApi = new SpotifyWebApi();
 
 const Player = () => {
-  const [{ currentPlaybackState }, dispatch] = useDataLayer();
+  const [{ currentPlaybackState, currentPlayingTrack }, dispatch] =
+    useDataLayer();
+  console.log(
+    '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlayingTrack',
+    currentPlayingTrack,
+  );
+
+  const detailOptions = {};
 
   useEffect(() => {
     spotifyApi
@@ -26,8 +33,16 @@ const Player = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw Error(err);
       });
+    detailOptions.trackTitle = currentPlayingTrack?.name;
+    detailOptions.albumTitle = currentPlayingTrack?.album?.name;
+    detailOptions.artistTitle = currentPlayingTrack?.album?.artists[0].name;
+    detailOptions.imageUrl = currentPlayingTrack?.album?.images[0].url;
+    console.log(
+      '🚀 ~ file: Player.jsx ~ line 46 ~ useEffect ~ detailOptions',
+      detailOptions,
+    );
   }, []);
 
   const handleSkipFunc = () => {
@@ -47,7 +62,7 @@ const Player = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw Error(err);
       });
   };
 
