@@ -12,6 +12,10 @@ const spotifyApi = new SpotifyWebApi();
 const Player = () => {
   const [{ currentPlaybackState, currentPlayingTrack }, dispatch] =
     useDataLayer();
+  console.log(
+    '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlaybackState',
+    currentPlaybackState,
+  );
   useEffect(() => {
     spotifyApi
       .getMyCurrentPlaybackState()
@@ -38,7 +42,7 @@ const Player = () => {
       .catch((err) => {
         throw Error(err);
       });
-  }, [currentPlaybackState]);
+  }, []);
 
   const handleSkipFunc = () => {
     spotifyApi
