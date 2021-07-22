@@ -30,11 +30,22 @@ const ViewSongs = () => {
       })
       .then(() => {
         spotifyApi.getMyCurrentPlaybackState().then((state) => {
+          console.log(
+            '🚀 ~ file: ViewSongs.jsx ~ line 33 ~ spotifyApi.getMyCurrentPlaybackState ~ state',
+            state,
+          );
           dispatch({
             type: types.SET_CURRENT_PLAYBACK_STATE,
             payload: state,
           });
+          dispatch({
+            type: types.SET_CURRENT_PLAYING_TRACK,
+            payload: state.item,
+          });
         });
+      })
+      .catch((err) => {
+        throw Error(err);
       });
   };
 

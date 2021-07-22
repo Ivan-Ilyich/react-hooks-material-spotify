@@ -10,12 +10,11 @@ import * as types from '../../../../context/consts/types';
 const spotifyApi = new SpotifyWebApi();
 
 const Player = () => {
-  const [{ currentPlaybackState, currentPlayingTrack, shuffle }, dispatch] =
-    useDataLayer();
-  console.log(
-    '🚀 ~ file: Player.jsx ~ line 14 ~ Player ~ currentPlaybackState',
-    currentPlaybackState,
-  );
+  const [
+    { currentPlaybackState, currentPlayingTrack, shuffle, selectedTrack },
+    dispatch,
+  ] = useDataLayer();
+
   useEffect(() => {
     spotifyApi
       .getMyCurrentPlaybackState()
@@ -28,7 +27,7 @@ const Player = () => {
       .catch((err) => {
         throw Error(err);
       });
-  }, []);
+  }, [selectedTrack]);
 
   useEffect(() => {
     spotifyApi
@@ -88,18 +87,23 @@ const Player = () => {
   };
 
   const handleShuffle = () => {
-    spotifyApi.setShuffle(!shuffle).then(() => {
-      dispatch({
-        type: types.SET_SHUFFLE,
-        payload: !shuffle,
-      });
-      spotifyApi.getMyCurrentPlaybackState().then((state) => {
+    spotifyApi
+      .setShuffle(!shuffle)
+      .then(() => {
         dispatch({
-          type: types.SET_CURRENT_PLAYBACK_STATE,
-          payload: state,
+          type: types.SET_SHUFFLE,
+          payload: !shuffle,
         });
+        spotifyApi.getMyCurrentPlaybackState().then((state) => {
+          dispatch({
+            type: types.SET_CURRENT_PLAYBACK_STATE,
+            payload: state,
+          });
+        });
+      })
+      .catch((err) => {
+        throw new Error(err);
       });
-    });
   };
 
   return (
