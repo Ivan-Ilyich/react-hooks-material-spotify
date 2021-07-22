@@ -24,12 +24,6 @@ const Main = () => {
       payload: user?.id || null,
     });
 
-    // const topArtists = user?.id && (await spotifyApi.getMyTopArtists(id));
-    // console.log(
-    //   '🚀 ~ file: Main.jsx ~ line 34 ~ useEffect ~ topArtists',
-    //   topArtists,
-    // );
-
     if (access_token) {
       spotifyApi.setAccessToken(access_token);
 

@@ -30,10 +30,6 @@ const ViewSongs = () => {
       })
       .then(() => {
         spotifyApi.getMyCurrentPlaybackState().then((state) => {
-          console.log(
-            '🚀 ~ file: ViewSongs.jsx ~ line 33 ~ spotifyApi.getMyCurrentPlaybackState ~ state',
-            state,
-          );
           dispatch({
             type: types.SET_CURRENT_PLAYBACK_STATE,
             payload: state,

@@ -10,12 +10,14 @@ const PlayerControls = ({
   handleSkipToNext,
   handleSkipToPrev,
   handleShuffle,
+  shuffleStyle,
 }) => {
   return (
     <div className="player__controls__container">
       <ShuffleIcon
         className="player__controls__green"
         onClick={handleShuffle}
+        style={shuffleStyle}
       />
       <SkipPreviousIcon
         className="player__controls__icon"

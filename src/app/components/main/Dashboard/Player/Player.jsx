@@ -10,10 +10,10 @@ import * as types from '../../../../context/consts/types';
 const spotifyApi = new SpotifyWebApi();
 
 const Player = () => {
-  const [
-    { currentPlaybackState, currentPlayingTrack, shuffle, selectedTrack },
-    dispatch,
-  ] = useDataLayer();
+  const [{ currentPlaybackState, currentPlayingTrack, shuffle }, dispatch] =
+    useDataLayer();
+
+  const shuffleStyle = shuffle ? { color: 'green' } : { color: 'white' };
 
   useEffect(() => {
     spotifyApi
@@ -23,11 +23,12 @@ const Player = () => {
           type: types.SET_CURRENT_PLAYBACK_STATE,
           payload: state,
         });
+        console.log('🚀 ~ file: Player.jsx ~ line 28 ~ .then ~ state', state);
       })
       .catch((err) => {
         throw Error(err);
       });
-  }, [selectedTrack]);
+  }, []);
 
   useEffect(() => {
     spotifyApi
@@ -41,7 +42,7 @@ const Player = () => {
       .catch((err) => {
         throw Error(err);
       });
-  }, [currentPlaybackState]);
+  }, []);
 
   const handleSkipFunc = () => {
     spotifyApi
@@ -119,6 +120,7 @@ const Player = () => {
         handleSkipToNext={handleSkipToNext}
         handleSkipToPrev={handleSkipToPrev}
         handleShuffle={handleShuffle}
+        shuffleStyle={shuffleStyle}
       />
       <VolumeControls volumeSetting={spotifyApi.setVolume} />
     </div>
