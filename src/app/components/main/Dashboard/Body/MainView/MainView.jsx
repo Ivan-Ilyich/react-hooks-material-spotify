@@ -18,6 +18,7 @@ const MainView = () => {
       });
     }
 
+    if (!selectedPlaylist) return;
     spotifyApi
       .getPlaylistTracks(selectedPlaylist?.id)
       .then((tracks) => {
