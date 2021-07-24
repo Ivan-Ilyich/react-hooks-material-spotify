@@ -27,7 +27,7 @@ const MainView = () => {
         });
       })
       .catch((err) => {
-        console.log(err);
+        throw Error(err);
       });
   }, [playlists, selectedPlaylist]);
 

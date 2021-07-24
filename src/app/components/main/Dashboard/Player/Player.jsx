@@ -16,23 +16,6 @@ const styles = {
   trackArtistColor: '#ccc',
   trackNameColor: '#fff',
   sliderColor: 'green',
-
-  // activeColor: string;
-  // altColor: string;
-  // bgColor: string;
-  // color: string;
-  // errorColor: string;
-  // height: number | string;
-  // loaderColor: string;
-  // loaderSize: number | string;
-  // sliderColor: string;
-  // sliderHandleBorderRadius: number | string;
-  // sliderHandleColor: string;
-  // sliderHeight: number;
-  // sliderTrackBorderRadius: number | string;
-  // sliderTrackColor: string;
-  // trackArtistColor: string;
-  // trackNameColor: string;
 };
 
 const Player = () => {
@@ -47,14 +30,6 @@ const Player = () => {
     },
     dispatch,
   ] = useDataLayer();
-  console.log(
-    '🚀 ~ file: Player.jsx ~ line 21 ~ Player ~ currentPlaybackState',
-    currentPlaybackState,
-  );
-  console.log(
-    '🚀 ~ file: Player.jsx ~ line 21 ~ Player ~ selectedTrack',
-    selectedTrack,
-  );
 
   // useEffect(() => {
   //   if (!accessToken) return;
