@@ -1,7 +1,0 @@
-[[redirects]]
-  from = "https://accounts.spotify.com/authorize"
-  to = "https://fervent-mccarthy-b9cf5a.netlify.app/"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
-  signed = "API_SIGNATURE_TOKEN"
