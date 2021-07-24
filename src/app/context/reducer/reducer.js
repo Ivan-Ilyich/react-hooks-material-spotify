@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as types from '../consts/types';
 
 export const initialState = {
