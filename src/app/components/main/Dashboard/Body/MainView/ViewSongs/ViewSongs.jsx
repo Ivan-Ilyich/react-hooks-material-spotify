@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import React from 'react';
-import SpotifyWebApi from 'spotify-web-api-js';
+// import SpotifyWebApi from 'spotify-web-api-js';
 import { uuid } from 'uuidv4';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -9,7 +9,7 @@ import SongRow from './SongRow/SongRow';
 import { useDataLayer } from '../../../../../../context/store';
 import * as types from '../../../../../../context/consts/types';
 
-const spotifyApi = new SpotifyWebApi();
+// const spotifyApi = new SpotifyWebApi();
 
 const ViewSongs = () => {
   const [{ selectedPlaylistsTracks }, dispatch] = useDataLayer();
@@ -24,25 +24,25 @@ const ViewSongs = () => {
       payload: selectedTrack,
     });
 
-    spotifyApi
-      .play({
-        uris: [`spotify:track:${selectedTrack.id}`],
-      })
-      .then(() => {
-        spotifyApi.getMyCurrentPlaybackState().then((state) => {
-          dispatch({
-            type: types.SET_CURRENT_PLAYBACK_STATE,
-            payload: state,
-          });
-          dispatch({
-            type: types.SET_CURRENT_PLAYING_TRACK,
-            payload: state.item,
-          });
-        });
-      })
-      .catch((err) => {
-        throw Error(err);
-      });
+    // spotifyApi
+    //   .play({
+    //     uris: [`spotify:track:${selectedTrack.id}`],
+    //   })
+    //   .then(() => {
+    //     spotifyApi.getMyCurrentPlaybackState().then((state) => {
+    //       dispatch({
+    //         type: types.SET_CURRENT_PLAYBACK_STATE,
+    //         payload: state,
+    //       });
+    //       dispatch({
+    //         type: types.SET_CURRENT_PLAYING_TRACK,
+    //         payload: state.item,
+    //       });
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     throw Error(err);
+    //   });
   };
 
   return (
