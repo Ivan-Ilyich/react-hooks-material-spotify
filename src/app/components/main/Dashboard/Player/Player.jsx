@@ -7,6 +7,32 @@ import { useDataLayer } from '../../../../context/store';
 import * as types from '../../../../context/consts/types';
 
 const spotifyApi = new SpotifyWebApi();
+const styles = {
+  activeColor: '#fff',
+  bgColor: '#333',
+  color: '#fff',
+  loaderColor: '#fff',
+  trackArtistColor: '#ccc',
+  trackNameColor: '#fff',
+  sliderColor: 'green',
+
+  // activeColor: string;
+  // altColor: string;
+  // bgColor: string;
+  // color: string;
+  // errorColor: string;
+  // height: number | string;
+  // loaderColor: string;
+  // loaderSize: number | string;
+  // sliderColor: string;
+  // sliderHandleBorderRadius: number | string;
+  // sliderHandleColor: string;
+  // sliderHeight: number;
+  // sliderTrackBorderRadius: number | string;
+  // sliderTrackColor: string;
+  // trackArtistColor: string;
+  // trackNameColor: string;
+};
 
 const Player = () => {
   const [
@@ -66,6 +92,7 @@ const Player = () => {
         uris={[selectedTrack?.uri] || []}
         autoPlay={false}
         initialVolume={0.5}
+        styles={styles}
       />
     </div>
   );

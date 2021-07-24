@@ -1,15 +1,27 @@
 .player__container {
-  height: 15%;
+  height: 100%;
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  bottom: 0;
-  padding: .8rem;
   width: 100vw;
-  background-color: #282828;
 }
 
-.player__details__container {
+.player__container .PlayerRSWP {
+  height: 100%;
+}
+
+.rswp__active>img {
+  margin-top: .5rem;
+  margin-left: .2rem;
+  margin-right: .2rem;
+  object-fit: contain;
+}
+
+/* .__nnvdcq>p,
+.__nnvdcq>svg {
+  top: 2.5rem;
+} */
+
+
+/* .player__details__container {
   display: flex;
   align-items: center;
   color: white;
@@ -63,4 +75,4 @@
 .player__controls__green:hover {
   transition: transform 0.2s ease-in-out;
   transform: scale(1.2) !important;
-}
+} */
