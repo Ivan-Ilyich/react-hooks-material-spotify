@@ -24,7 +24,7 @@ const SearchBar = () => {
     <div className="header__searchBar__container">
       <SearchIcon />
       <input
-        placeholder="Search for Artists, Songs, or Podcasts "
+        placeholder="Search for Songs"
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
