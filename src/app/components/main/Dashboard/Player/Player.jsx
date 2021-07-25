@@ -65,7 +65,7 @@ const Player = () => {
         token={accessToken}
         showSaveIcon
         uris={[selectedTrack?.uri] || []}
-        autoPlay={false}
+        play
         initialVolume={0.5}
         styles={styles}
       />
